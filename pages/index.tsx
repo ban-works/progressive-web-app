@@ -1,10 +1,13 @@
 import styles from '../styles/Home.module.css'
 import Home from "../components/Home"
+import localFont from 'next/font/local'
+const myFont = localFont({ src: '../fonts/moonraze.otf' })
 
 export default function HomePage() {
   return (
     <div className={styles.container} >
       <main className={styles.main}>
+
  <Home/>
         {/* <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
