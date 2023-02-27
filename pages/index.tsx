@@ -3,7 +3,7 @@ import Home from "../components/Home"
 
 export default function HomePage() {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} >
       <main className={styles.main}>
  <Home/>
         {/* <div className={styles.grid}>
@@ -41,12 +41,11 @@ export default function HomePage() {
 
       <footer className={styles.footer}>
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://ban-works.github.io"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+          A test of next-pwa by Ban
         </a>
       </footer>
     </div>
