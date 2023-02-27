@@ -21,7 +21,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta name="description" content="Description" />
         <meta name="keywords" content="Keywords" />
         {/* <meta name="theme-color" content="#36977D"/> */}
-        <title>Next.js PWA Example</title>
+        <title>Gator Gizz - A KGLW fan web app</title>
 
         <link rel="manifest" href="/manifest.json" />
         <link
