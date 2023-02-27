@@ -1,8 +1,8 @@
 {
   "name": "Gator Gizz",
   "short_name": "Gator G",
-  "theme_color": "#ffffff",
-  "background_color": "#004740",
+  "theme_color": "#36977D",
+  "background_color": "#170C5A",
   "display": "fullscreen",
   "orientation": "portrait",
   "scope": "/",

@@ -14,9 +14,12 @@ export default function Home() {
         height={256}
         alt="Gator gizz logo : a green aligator"
       />
-              <h1 className={myFont.className} style={{color: "#67D082"}}>Welcome to Gator Gizz</h1>
+              <h1 className={myFont.className} style={{color: "#67D082", fontSize:'45px', textAlign:'center'}}>Welcome to Gator Gizz</h1>
               <p> A simple PWA made possible by Next.js</p>
+        <div className="bg-black" >
 
+
+        </div>
 
     </div>
   );

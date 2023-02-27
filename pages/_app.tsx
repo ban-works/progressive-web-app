@@ -1,10 +1,16 @@
 import Head from 'next/head'
 import '../styles/globals.css'
 import { AppProps } from 'next/app'
+import { ThemeProvider } from 'next-themes';
+import Image from 'next/image'
+import localFont from 'next/font/local'
+const myFont = localFont({ src: '../fonts/moonraze.otf' })
+
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <ThemeProvider attribute="class" defaultTheme="system">
+
       <Head>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -14,7 +20,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         />
         <meta name="description" content="Description" />
         <meta name="keywords" content="Keywords" />
-        <meta name="theme-color" content="#36977D"/>
+        {/* <meta name="theme-color" content="#36977D"/> */}
         <title>Next.js PWA Example</title>
 
         <link rel="manifest" href="/manifest.json" />
@@ -31,9 +37,20 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           sizes="32x32"
         />
         <link rel="apple-touch-icon" href="/apple-icon.png"></link>
-        <meta name="theme-color" content="#317EFB" />
+        {/* <meta name="theme-color" content="#317EFB" /> */}
       </Head>
+      <header style={{height:'10vh', position: 'fixed',
+  top: 0,
+  width: '100%',backgroundColor:'#170C5A'}} className="flex">
+      <Image
+        src="/image50.png"
+        width={177}
+        height={100}
+        alt="Gator gizz logo : a green aligator"
+      />
+      <span className={myFont.className} style={{color: "#67D082", fontSize:'30px', paddingTop:'20px'}}> GATOR GiZZ</span>
+      </header>
       <Component  {...pageProps} />
-    </>
+      </ThemeProvider>
   )
 }
