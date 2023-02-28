@@ -5,7 +5,7 @@ import { ThemeProvider } from 'next-themes';
 import Image from 'next/image'
 import localFont from 'next/font/local'
 const myFont = localFont({ src: '../fonts/moonraze.otf' })
-
+import styles from '../styles/Home.module.css'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -51,6 +51,21 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <span className={myFont.className} style={{color: "#67D082", fontSize:'30px', paddingTop:'10px'}}> GATOR GiZZ</span>
       </header>
       <Component  {...pageProps} />
+      <footer className={styles.footer} >
+        <a
+          href="https://ban-works.github.io"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{display:'flex', flexDirection:'column'}}>
+          A test of next-pwa by Ban
+          <Image
+        src="/image50.png"
+        width={88}
+        height={50}
+        alt="Gator gizz logo : a green aligator"
+      />
+        </a>
+      </footer>
       </ThemeProvider>
   )
 }

@@ -57,6 +57,8 @@ export default function Home() {
   });
   return (
     <div className={styles.container}>
+      <div className="bg-gator-pink flex flex-col justify-center items-center pt-12">
+
       <Image
         priority
         src="/image50.png"
@@ -66,18 +68,19 @@ export default function Home() {
       />
       <h1
         className={myFont.className}
-        style={{ color: "#67D082", fontSize: "45px", textAlign: "center" }}
+        style={{ color: "#170C5A", fontSize: "45px", lineHeight:"42px", textAlign: "center", marginTop:"-40px" }}
       >
         Welcome to Gator Gizz
       </h1>
       <h2 className="font-black text-gator-blue">a KGLW fan website</h2>
 
-    <div style={{width:"100%", marginTop:"2%"}}>
-      <h2 className="text-left pl-8 text-gator-pink text-3xl font-black">
+    <div className="bg-gator-blue mt-4 pt-4" style={{width:"100%"}}>
+      <h2 className="text-left pl-6 text-gator-pink text-3xl font-black">
         NEXT SHOWS
       </h2>
-    </div>
       <div className=" mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" >{eventsToDisplay}</div>
+    </div>
+      </div>
     </div>
   );
 }

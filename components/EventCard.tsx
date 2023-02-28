@@ -7,7 +7,7 @@ export default function EventCard(props: Event) {
     let time = 0;
   return (
     <a href={props.bookingURL} target="_blank">
-    <div className="flex-initial  text-gator-neongreen hover:text-gator-pink justify-center items-center min-h-[300px] min-w-[300px] p-2 bg-gator-pink border-4 border-gator-neongreen  shadow hover:bg-gator-lightgreen dark:bg-gator-pink dark:order-gator-neongreen dark:hover:bg-gator-lightgreen mb-4 mr-4 ">
+    <div className="flex-initial  text-gator-neongreen hover:text-gator-pink justify-center items-center min-h-[320px] min-w-[300px] p-2 bg-gator-pink border-4 border-gator-neongreen  shadow hover:bg-gator-lightgreen dark:bg-gator-pink dark:order-gator-neongreen dark:hover:bg-gator-lightgreen mb-4 mr-4 ">
       <div style={{width: '100%', height: '200px', position: 'relative'}}>
 
       <Image
@@ -23,9 +23,13 @@ export default function EventCard(props: Event) {
       />
       </div>
       <h3 className="font-black ">{props.name}</h3>
-      <p>
-        {props.localDate} {props.localTime} - {props.city} ({props.countryCode})
+      <p className="text-gator-blue">
+      <p className=" text-gator-blue font-black ">
+     {props.city} ({props.countryCode})
       </p>
+        {props.localDate} {props.localTime && "//"} {props.localTime?.slice(0,5)}
+      </p>
+
     </div>
     </a>
   );
