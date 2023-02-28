@@ -6,6 +6,7 @@ const myFont = localFont({ src: "../fonts/moonraze.otf" });
 import { Spotify } from "react-spotify-embed";
 
 import EventCard from "./EventCard";
+import useIsOffline from "../hooks/useIsOffline";
 
 export type Event = {
   name: string;
@@ -25,17 +26,15 @@ bookingURL: string;
 };
 export default function Home() {
   const [events, setEvents] = useState<Event[]>([]);
-
+ let isOffline = useIsOffline();
   useEffect(() => {
     fetch(
       "https://app.ticketmaster.com/discovery/v2/events.json?attractionId=K8vZ9173QDf&apikey=G4vYwWGcLUpVZfpCj8hjJrUGZi0U0WAf"
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data._embedded.events);
         let newEvents = [];
         for (const event of data._embedded.events) {
-          console.log(event);
           const newEvent = {
             name: event.name,
             city: event._embedded.venues[0].city.name,
@@ -46,7 +45,6 @@ export default function Home() {
             images: event.images,
             bookingURL: event.url,
           };
-          console.log(newEvent);
           newEvents.push(newEvent);
         }
         setEvents(newEvents);
@@ -81,10 +79,13 @@ export default function Home() {
       </h2>
       <div className=" mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" >{eventsToDisplay}</div>
     </div>
-    <div className="bg-gator-lightgreen p-4 flex justify-center" style={{width:"100%"}}>
-
-    <Spotify link="https://open.spotify.com/album/05ag5ukffFozEnXGOeuTTD?si=kU2nCVhJT2yqw90bUZashw" />
-    </div>
+    <div className="bg-gator-lightgreen p-4 flex flex-col justify-center items-center " style={{width:"100%"}}>
+    <h2 className="text-left w-[100%] pl-6 pb-4 text-gator-pink text-3xl font-black ">
+        LAST ALBUM
+      </h2>
+{    !isOffline ? <Spotify link="https://open.spotify.com/album/05ag5ukffFozEnXGOeuTTD?si=kU2nCVhJT2yqw90bUZashw" />
+      : <p className="text-left text-gator-blue w-[100%] pl-6">You have to be online to listen to songs ...</p>
+}    </div>
 
       </div>
     </div>
