@@ -20,7 +20,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         />
         <meta name="description" content="Description" />
         <meta name="keywords" content="Keywords" />
-        {/* <meta name="theme-color" content="#36977D"/> */}
+        <meta name="theme-color" content="#36977D"/>
         <title>Gator Gizz - A KGLW fan web app</title>
 
         <link rel="manifest" href="/manifest.json" />
@@ -41,14 +41,14 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <header style={{height:'10vh', position: 'fixed',
   top: 0,
-  width: '100%',backgroundColor:'#170C5A'}} className="flex">
+  width: '100%',backgroundColor:'#170C5A', zIndex:100}} className="flex items-center">
       <Image
         src="/image50.png"
         width={177}
         height={100}
         alt="Gator gizz logo : a green aligator"
       />
-      <span className={myFont.className} style={{color: "#67D082", fontSize:'30px', paddingTop:'20px'}}> GATOR GiZZ</span>
+      <span className={myFont.className} style={{color: "#67D082", fontSize:'30px', paddingTop:'10px'}}> GATOR GiZZ</span>
       </header>
       <Component  {...pageProps} />
       </ThemeProvider>

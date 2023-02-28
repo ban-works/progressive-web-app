@@ -2,6 +2,7 @@ import styles from '../styles/Home.module.css'
 import Home from "../components/Home"
 import localFont from 'next/font/local'
 const myFont = localFont({ src: '../fonts/moonraze.otf' })
+import Image from "next/image"
 
 export default function HomePage() {
   return (
@@ -42,13 +43,19 @@ export default function HomePage() {
         </div> */}
       </main>
 
-      <footer className={styles.footer}>
+      <footer className={styles.footer} >
         <a
           href="https://ban-works.github.io"
           target="_blank"
           rel="noopener noreferrer"
-        >
+          style={{display:'flex', flexDirection:'column'}}>
           A test of next-pwa by Ban
+          <Image
+        src="/image50.png"
+        width={88}
+        height={50}
+        alt="Gator gizz logo : a green aligator"
+      />
         </a>
       </footer>
     </div>

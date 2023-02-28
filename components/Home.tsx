@@ -4,7 +4,9 @@ import styles from "../styles/Home.module.css";
 import localFont from "next/font/local";
 const myFont = localFont({ src: "../fonts/moonraze.otf" });
 
-type Event = {
+import EventCard from "./EventCard";
+
+export type Event = {
   name: string;
   city: string;
   country: string;
@@ -18,6 +20,7 @@ type Event = {
     url: string;
     width: number;
   }[];
+bookingURL: string;
 };
 export default function Home() {
   const [events, setEvents] = useState<Event[]>([]);
@@ -31,7 +34,7 @@ export default function Home() {
         console.log(data._embedded.events);
         let newEvents = [];
         for (const event of data._embedded.events) {
-            console.log(event);
+          console.log(event);
           const newEvent = {
             name: event.name,
             city: event._embedded.venues[0].city.name,
@@ -40,6 +43,7 @@ export default function Home() {
             localDate: event.dates.start.localDate,
             localTime: event.dates.start.localTime,
             images: event.images,
+            bookingURL: event.url,
           };
           console.log(newEvent);
           newEvents.push(newEvent);
@@ -49,28 +53,12 @@ export default function Home() {
   }, []);
 
   const eventsToDisplay = events.map((data: Event, i: number) => {
-    return (
-      <div key={i}>
-        <Image
-          src={data.images[0].url}
-          alt={data.name + data.city + "posrt"}
-        //   width={data.images[0].width}
-        //   height={data.images[0].height}
-        width={300}
-          height={200}
-        />
-        <p>{data.name}
-</p>
-        <p>
-        {data.localDate} {data.localTime} - {data.city} - {data.countryCode}
-        </p>
-
-      </div>
-    );
+    return <EventCard {...data} />;
   });
   return (
     <div className={styles.container}>
       <Image
+        priority
         src="/image50.png"
         width={455}
         height={256}
@@ -82,7 +70,14 @@ export default function Home() {
       >
         Welcome to Gator Gizz
       </h1>
-      <div>{eventsToDisplay}</div>
+      <h2 className="font-black text-gator-blue">a KGLW fan website</h2>
+
+    <div style={{width:"100%", marginTop:"2%"}}>
+      <h2 className="text-left pl-8 text-gator-pink text-3xl font-black">
+        NEXT SHOWS
+      </h2>
+    </div>
+      <div className=" mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" >{eventsToDisplay}</div>
     </div>
   );
 }
