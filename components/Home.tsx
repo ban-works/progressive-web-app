@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import localFont from "next/font/local";
 const myFont = localFont({ src: "../fonts/moonraze.otf" });
+import { Spotify } from "react-spotify-embed";
 
 import EventCard from "./EventCard";
 
@@ -80,6 +81,11 @@ export default function Home() {
       </h2>
       <div className=" mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" >{eventsToDisplay}</div>
     </div>
+    <div className="bg-gator-lightgreen p-4 flex justify-center" style={{width:"100%"}}>
+
+    <Spotify link="https://open.spotify.com/album/05ag5ukffFozEnXGOeuTTD?si=kU2nCVhJT2yqw90bUZashw" />
+    </div>
+
       </div>
     </div>
   );
