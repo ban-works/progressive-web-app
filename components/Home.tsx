@@ -47,6 +47,7 @@ export default function Home() {
           };
           newEvents.push(newEvent);
         }
+        newEvents= newEvents.slice(0,9)
         setEvents(newEvents);
       });
   }, []);
