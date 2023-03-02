@@ -2,14 +2,20 @@ import Head from 'next/head'
 import '../styles/globals.css'
 import { AppProps } from 'next/app'
 import localFont from 'next/font/local'
+import {useState} from 'react';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Layout from '../components/Layout';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    // <ThemeProvider attribute="class" defaultTheme="system">
+
+const [activePage, setActivePage] = useState('HomePage');
+function handleActivePageChange (page:string){
+  setActivePage(page);
+}
+
+return (
 <>
       <Head>
         <meta charSet="utf-8" />
@@ -39,9 +45,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <link rel="apple-touch-icon" href="/apple-icon.png"></link>
         {/* <meta name="theme-color" content="#317EFB" /> */}
       </Head>
-<Layout>
+<Layout activePage={activePage}>
 
-      <Component  {...pageProps} />
+      <Component  {...pageProps} handleActivePageChange={handleActivePageChange}/>
 </Layout>
       </>
   )
