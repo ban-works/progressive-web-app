@@ -80,7 +80,7 @@ export default function Home() {
       </h2>
       <div className=" mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" >{eventsToDisplay}</div>
     </div>
-    <div className="bg-gator-lightgreen p-4 flex flex-col justify-center items-center " style={{width:"100%"}}>
+    <div className="bg-gator-lightgreen p-4  pb-48 flex flex-col justify-center items-center " style={{width:"100%"}}>
     <h2 className="text-left w-[100%] pl-6 pb-4 text-gator-pink text-3xl font-black ">
         LAST ALBUM
       </h2>
