@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faRecordVinyl } from '@fortawesome/free-solid-svg-icons'
+import '@fortawesome/fontawesome-svg-core/styles.css'
 
 type Release ={
     title: string;
@@ -17,7 +20,8 @@ console.log(releases)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        setReleases(data.releases)
+        let releasesData = data.releases.sort( (e:Release )=> e.year)
+        setReleases(releasesData)
         // setReleases(data.releases.filter((release:{format:string}) => release.format && release.format.includes("LP")))
     });
   }, []);
@@ -26,14 +30,21 @@ console.log(releases)
     return (
         <div key={i} className="mt-2" >
             <h3 className="text-xl font-bold">{release.title} <span className="font-black">{release.year}</span></h3>
-            <p>{release.format} {release.label && "by"} {release.label} </p>
-            <a href={`https://www.discogs.com/${release.type}/${release.id}`}>See all details on Discog</a>
+            <p>{release.type === "master" ? "Master" :release.format} {release.label && "by"} {release.label} </p>
+            <a href={`https://www.discogs.com/${release.type}/${release.id}`} target="_blank">
+            <button className="bg-gator-blue p-2 text-gator-lightpink rounded-lg mt-2 text-xs">
+
+
+            <FontAwesomeIcon icon={faRecordVinyl} size="sm"/> {" "}
+SEE ON DISCOG
+            </button>
+            </a>
 
         </div>
     )
   })
   return (
-    <div className="p-6 pt-24 bg-gator-lightpink w-[100vw]">
+    <div className="p-6 pt-24 pb-36 bg-gator-lightpink w-[100vw]">
 <h2 className="text-left text-gator-neongreen text-3xl font-black pt-2 pb-2">
        ALL RELEASES
       </h2>      {releasesDisplay}
