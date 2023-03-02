@@ -11,6 +11,7 @@ import Layout from '../components/Layout';
 export default function MyApp({ Component, pageProps }: AppProps) {
 
 const [activePage, setActivePage] = useState('HomePage');
+
 function handleActivePageChange (page:string){
   setActivePage(page);
 }

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRecordVinyl, faHatWizard, faShirt } from "@fortawesome/free-solid-svg-icons";
+import { faRecordVinyl, faHatWizard, faShirt, faHeadphones } from "@fortawesome/free-solid-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
 type Props ={
@@ -13,8 +13,10 @@ export default function Footer({activePage}:Props) {
 
 let firstInactiveClassName = "text-gator-green mr-3"
 let firstActiveClassName = "text-gator-pink mr-3"
+
 let inactiveClassName = "text-gator-green mr-3 ml-3"
 let activeClassName = "text-gator-pink mr-3 ml-3"
+
 let lastInactiveClassName = "text-gator-green mr-3 ml-3"
 let lastActiveClassName = "text-gator-pink mr-3 ml-3"
 
@@ -67,7 +69,7 @@ if (activePage === "MerchPage"){
           style={{ display: "flex", flexDirection: "column" }}
           className={releasesIconStyle}
         >
-          <FontAwesomeIcon icon={faRecordVinyl} size="lg" />
+          <FontAwesomeIcon icon={faHeadphones} size="lg" />
           Releases
         </a>
         <a
@@ -85,7 +87,7 @@ if (activePage === "MerchPage"){
           style={{ display: "flex", flexDirection: "column" }}
           className={merchIconStyle}
         >
-          <FontAwesomeIcon icon={faRecordVinyl} size="lg" />
+          <FontAwesomeIcon icon={faShirt} size="lg" />
           Merch
         </a>
       </div>
