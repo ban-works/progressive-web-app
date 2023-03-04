@@ -14,12 +14,10 @@ type Release ={
 
 export default function Releases() {
   const [releases, setReleases] = useState([]);
-console.log(releases)
   useEffect(() => {
     fetch(`https://api.discogs.com/artists/2532180/releases?page=1&per_page=220&sort=year&sort_order=desc`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         let releasesData = data.releases.sort( (e:Release )=> e.year)
         setReleases(releasesData)
         // setReleases(data.releases.filter((release:{format:string}) => release.format && release.format.includes("LP")))
@@ -44,7 +42,7 @@ SEE ON DISCOG
     )
   })
   return (
-    <div className="p-6 pt-24 pb-36 bg-gator-lightpink w-[100vw]">
+    <div className="p-6 pt-24 pb-36 bg-gator-lightpink w-[100vw] min-h-screen">
 <h2 className="text-left text-gator-neongreen text-3xl font-black pt-2 pb-2">
        ALL RELEASES
       </h2>      {releasesDisplay}

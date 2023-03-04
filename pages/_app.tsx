@@ -1,11 +1,7 @@
 import Head from 'next/head'
 import '../styles/globals.css'
 import { AppProps } from 'next/app'
-import localFont from 'next/font/local'
 import {useState} from 'react';
-
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import Layout from '../components/Layout';
 
 export default function MyApp({ Component, pageProps }: AppProps) {

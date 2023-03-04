@@ -13,7 +13,7 @@ export default function MyApp() {
         height={100}
         alt="Gator gizz logo : a green aligator"
       />
-      <span className={myFont.className} style={{color: "#67D082", fontSize:'30px', paddingTop:'10px'}}> GATOR GiZZ</span>
+      <span className={myFont.className} style={{color: "#67D082", fontSize:'30px', paddingTop:'10px'}}> GATOR CLUB</span>
       </a>
 
 

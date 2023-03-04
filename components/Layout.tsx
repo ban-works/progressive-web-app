@@ -14,7 +14,6 @@ type Props = {
 };
 
 const Layout = ({ children, title = "This is the default title", activePage }: Props)=>  {
-console.log(activePage)
     return  (
         <div>
           <Header />
