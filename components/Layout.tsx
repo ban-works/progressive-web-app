@@ -16,6 +16,7 @@ type Props = {
 const Layout = ({ children, title = "This is the default title", activePage }: Props)=>  {
     return  (
         <div>
+         
           <Header />
           {children}
           <Footer activePage={activePage} />

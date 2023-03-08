@@ -15,7 +15,7 @@ export type Event = {
   countryCode: string;
   localTime: string;
   localDate: string;
-  images: {
+  images?: {
     fallback: boolean;
     height: number;
     ratio: string;
@@ -23,31 +23,67 @@ export type Event = {
     width: number;
   }[];
   bookingURL: string;
+  venue: string;
 };
 export default function Home() {
   const [events, setEvents] = useState<Event[]>([]);
   let isOffline = useIsOffline();
-  useEffect(() => {
+  // useEffect(() => {
+  //   fetch(
+  //     // "https://app.ticketmaster.com/discovery/v2/events.json?attractionId=K8vZ9173QDf&apikey=G4vYwWGcLUpVZfpCj8hjJrUGZi0U0WAf"
+  //     "https://api.songkick.com/api/3.0/artists/4137561/calendar/tourbox.json?apikey=2kPN9eFcrPY9pwv4&per_page=100&jsoncallback=calendar_jqueryJsonpCallback&_=1678100472188"
+  //   )
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       let newEvents = [];
+  //       for (const event of data._embedded.events) {
+  //         const newEvent = {
+  //           name: event.name,
+  //           city: event._embedded.venues[0].city.name,
+  //           country: event._embedded.venues[0].country.name,
+  //           countryCode: event._embedded.venues[0].country.countryCode,
+  //           localDate: event.dates.start.localDate,
+  //           localTime: event.dates.start.localTime,
+  //           images: event.images,
+  //           bookingURL: event.url,
+  //         };
+  //         newEvents.push(newEvent);
+  //       }
+  //       newEvents = newEvents.slice(0, 9);
+  //       setEvents(newEvents);
+  //     });
+  // }, []);
+useEffect(() => {
+  console.log('hello');
     fetch(
-      "https://app.ticketmaster.com/discovery/v2/events.json?attractionId=K8vZ9173QDf&apikey=G4vYwWGcLUpVZfpCj8hjJrUGZi0U0WAf"
+// "https://app.ticketmaster.com/discovery/v2/events.json?attractionId=K8vZ9173QDf&apikey=G4vYwWGcLUpVZfpCj8hjJrUGZi0U0WAf"
+
+      "https://api.songkick.com/api/3.0/artists/4137561/calendar/tourbox.json?apikey=2kPN9eFcrPY9pwv4&per_page=100"
     )
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         let newEvents = [];
-        for (const event of data._embedded.events) {
+        for (const event of data.resultsPage.results.performance) {
+
+          let newName = event.event.performance[0].displayName;
+          if(event.event.performance.length> 1){
+            newName = event.event.performance[0].displayName+" + " + event.event.performance[1].displayName
+          }
           const newEvent = {
-            name: event.name,
-            city: event._embedded.venues[0].city.name,
-            country: event._embedded.venues[0].country.name,
-            countryCode: event._embedded.venues[0].country.countryCode,
-            localDate: event.dates.start.localDate,
-            localTime: event.dates.start.localTime,
+            name: newName,
+            venue: event.event.venue.displayName,
+            city:event.event.location.city,
+            country: event.event.location.city,
+            countryCode: event.event.location.city,
+            localDate: event.event.start.date,
+            localTime: event.event.start.time,
             images: event.images,
-            bookingURL: event.url,
+            bookingURL: event.event.uri,
           };
           newEvents.push(newEvent);
         }
-        newEvents = newEvents.slice(0, 9);
+        // newEvents = newEvents.slice(0, 9);
         setEvents(newEvents);
       });
   }, []);
