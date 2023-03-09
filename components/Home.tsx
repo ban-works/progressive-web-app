@@ -89,7 +89,7 @@ useEffect(() => {
   }, []);
 
   const eventsToDisplay = events.map((data: Event, i: number) => {
-    return <EventCard {...data} />;
+    return <EventCard {...data} key={i}/>;
   });
   return (
     <div className={styles.container}>
