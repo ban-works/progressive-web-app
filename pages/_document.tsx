@@ -1,15 +1,38 @@
-import { Html, Head, Main, NextScript } from 'next/document'
-import { GTM_ID } from '../lib/gtm'
+import { Html, Head, Main, NextScript } from "next/document";
+import { GTM_ID } from "../lib/gtm";
 export default function Document() {
   return (
     <Html>
       <Head>
         <script
-        async
-        src={`https://googletagmanager.com/gtag/js?id=${GTM_ID}`}
+          async
+          src={`https://googletagmanager.com/gtag/js?id=${GTM_ID}`}
         />
         <script
-        dangerouslySetInnerHTML={{
+          data-cookieconsent="ignore"
+          dangerouslySetInnerHTML={{
+            __html: `
+        window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("consent", "default", {
+    ad_storage: "denied",
+    analytics_storage: "denied",
+    functionality_storage: "denied",
+    personalization_storage: "denied",
+    security_storage: "granted",
+    wait_for_update: 500,
+  });
+  gtag("set", "ads_data_redaction", true);
+  gtag("set", "url_passthrough", true);
+  `,
+          }}
+        />
+
+        <script
+          data-cookieconsent="ignore"
+          dangerouslySetInnerHTML={{
             __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -19,6 +42,13 @@ export default function Document() {
             });
             `,
           }}
+        />
+        <script
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid="e5aaf93d-bac8-47e1-ba92-025aa75b7489"
+          data-blockingmode="auto"
+          type="text/javascript"
         />
       </Head>
       <body>
@@ -34,5 +64,5 @@ export default function Document() {
         <NextScript />
       </body>
     </Html>
-  )
+  );
 }
