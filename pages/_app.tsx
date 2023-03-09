@@ -3,32 +3,35 @@ import '../styles/globals.css'
 import { AppProps } from 'next/app'
 import {useState, useEffect} from 'react';
 import Layout from '../components/Layout';
+import Script from 'next/script';
 // import analytics from '../utility/analytics'
 
-import TagManager from 'react-gtm-module'
+// import TagManager from 'react-gtm-module'
 
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [activePage, setActivePage] = useState('HomePage');
-
-  const tagManagerArgs = {
-    gtmId: 'GTM-PFCM7MZ'
-  }
-  TagManager.initialize(tagManagerArgs)
+const GTM_ID = 'GTM-PFCM7MZ'
 
 
 function handleActivePageChange (page:string){
   setActivePage(page);
 }
 
-// useEffect(() => {
-//   analytics.page()
-//   // this will fire the Page Track function on every new router change.
-// }, [])
+
 
 return (
 <>
       <Head>
+      <Script id="google-tag-manager" strategy="afterInteractive">
+      {`
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','${GTM_ID}');
+      `}
+    </Script>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta
