@@ -1,8 +1,10 @@
 import Head from 'next/head'
 import '../styles/globals.css'
 import { AppProps } from 'next/app'
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import Layout from '../components/Layout';
+import analytics from '../utility/analytics'
+
 
 export default function MyApp({ Component, pageProps }: AppProps) {
 
@@ -11,6 +13,11 @@ const [activePage, setActivePage] = useState('HomePage');
 function handleActivePageChange (page:string){
   setActivePage(page);
 }
+
+useEffect(() => {
+  analytics.page()
+  // this will fire the Page Track function on every new router change.
+}, [])
 
 return (
 <>
