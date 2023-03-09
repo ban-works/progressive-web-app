@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <script
+        {/* <script
           async
           src={`https://googletagmanager.com/gtag/js?id=${GTM_ID}`}
         />
@@ -49,17 +49,17 @@ export default function Document() {
           data-cbid="e5aaf93d-bac8-47e1-ba92-025aa75b7489"
           data-blockingmode="auto"
           type="text/javascript"
-        />
+        /> */}
       </Head>
       <body>
-        {/* <noscript>
+      <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
             height="0"
             width="0"
             style={{ display: 'none', visibility: 'hidden' }}
           />
-        </noscript> */}
+        </noscript>
         <Main />
         <NextScript />
       </body>
