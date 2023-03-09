@@ -14,10 +14,10 @@ function handleActivePageChange (page:string){
   setActivePage(page);
 }
 
-useEffect(() => {
+// useEffect(() => {
   analytics.page()
   // this will fire the Page Track function on every new router change.
-}, [])
+// }, [])
 
 return (
 <>
