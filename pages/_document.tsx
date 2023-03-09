@@ -3,16 +3,33 @@ import { GTM_ID } from '../lib/gtm'
 export default function Document() {
   return (
     <Html>
-      <Head />
+      <Head>
+        <script
+        async
+        src={`https://googletagmanager.com/gtag/js?id=${GTM_ID}`}
+        />
+        <script
+        dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GTM_ID}', {
+                page_path: window.location.pathname,
+            });
+            `,
+          }}
+        />
+      </Head>
       <body>
-        <noscript>
+        {/* <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
             height="0"
             width="0"
             style={{ display: 'none', visibility: 'hidden' }}
           />
-        </noscript>
+        </noscript> */}
         <Main />
         <NextScript />
       </body>

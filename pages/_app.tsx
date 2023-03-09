@@ -15,13 +15,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   const [activePage, setActivePage] = useState('HomePage');
 
 
-const router = useRouter()
-  useEffect(() => {
-    router.events.on('routeChangeComplete', pageview)
-    return () => {
-      router.events.off('routeChangeComplete', pageview)
-    }
-  }, [router.events])
+// const router = useRouter()
+//   useEffect(() => {
+//     router.events.on('routeChangeComplete', pageview)
+//     return () => {
+//       router.events.off('routeChangeComplete', pageview)
+//     }
+//   }, [router.events])
 
 function handleActivePageChange (page:string){
   setActivePage(page);
@@ -31,7 +31,7 @@ function handleActivePageChange (page:string){
 
 return (
 <>
-<Script
+{/* <Script
         id="gtag-base"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
@@ -43,7 +43,7 @@ return (
             })(window,document,'script','dataLayer', '${GTM_ID}');
           `,
         }}
-      />
+      /> */}
       <Head>
 
         <meta charSet="utf-8" />
