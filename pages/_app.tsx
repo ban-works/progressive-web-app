@@ -3,20 +3,27 @@ import '../styles/globals.css'
 import { AppProps } from 'next/app'
 import {useState, useEffect} from 'react';
 import Layout from '../components/Layout';
-import analytics from '../utility/analytics'
+// import analytics from '../utility/analytics'
+
+import TagManager from 'react-gtm-module'
 
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+  const [activePage, setActivePage] = useState('HomePage');
 
-const [activePage, setActivePage] = useState('HomePage');
+  const tagManagerArgs = {
+    gtmId: 'GTM-PFCM7MZ'
+  }
+  TagManager.initialize(tagManagerArgs)
+
 
 function handleActivePageChange (page:string){
   setActivePage(page);
 }
 
 // useEffect(() => {
-  analytics.page()
-  // this will fire the Page Track function on every new router change.
+//   analytics.page()
+//   // this will fire the Page Track function on every new router change.
 // }, [])
 
 return (
