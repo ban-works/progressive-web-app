@@ -15,13 +15,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   const [activePage, setActivePage] = useState('HomePage');
 
 
-// const router = useRouter()
-//   useEffect(() => {
-//     router.events.on('routeChangeComplete', pageview)
-//     return () => {
-//       router.events.off('routeChangeComplete', pageview)
-//     }
-//   }, [router.events])
+const router = useRouter()
+  useEffect(() => {
+    router.events.on('routeChangeComplete', pageview)
+    return () => {
+      router.events.off('routeChangeComplete', pageview)
+    }
+  }, [router.events])
 
 function handleActivePageChange (page:string){
   setActivePage(page);
