@@ -7,8 +7,8 @@ export default function Document() {
         {/* <script
           async
           src={`https://googletagmanager.com/gtag/js?id=${GTM_ID}`}
-        />
-        <script
+        /> */}
+        {/* <script
           data-cookieconsent="ignore"
           dangerouslySetInnerHTML={{
             __html: `
@@ -28,9 +28,9 @@ export default function Document() {
   gtag("set", "url_passthrough", true);
   `,
           }}
-        />
+        /> */}
 
-        <script
+        {/* <script
           data-cookieconsent="ignore"
           dangerouslySetInnerHTML={{
             __html: `
@@ -42,8 +42,8 @@ export default function Document() {
             });
             `,
           }}
-        />
-        <script
+        /> */}
+        {/* <script
           id="Cookiebot"
           src="https://consent.cookiebot.com/uc.js"
           data-cbid="e5aaf93d-bac8-47e1-ba92-025aa75b7489"

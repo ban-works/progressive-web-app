@@ -33,6 +33,27 @@ function handleActivePageChange (page:string){
 return (
 <>
 <Script
+          data-cookieconsent="ignore"
+          dangerouslySetInnerHTML={{
+            __html: `
+        window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("consent", "default", {
+    ad_storage: "granted",
+    analytics_storage: "granted",
+    functionality_storage: "granted",
+    personalization_storage: "granted",
+    security_storage: "granted",
+    wait_for_update: 500,
+  });
+  gtag("set", "ads_data_redaction", true);
+  gtag("set", "url_passthrough", true);
+  `,
+          }}
+        />
+<Script
         id="gtag-base"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
@@ -45,7 +66,29 @@ return (
           `,
         }}
       />
-   
+
+       {/* <Script
+          data-cookieconsent="ignore"
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GTM_ID}', {
+                page_path: window.location.pathname,
+            });
+            `,
+          }}
+        />
+        */}
+        <Script
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid="e5aaf93d-bac8-47e1-ba92-025aa75b7489"
+          data-blockingmode="auto"
+          type="text/javascript"
+        />
+
 <Layout activePage={activePage}>
 
       <Component  {...pageProps} handleActivePageChange={handleActivePageChange}/>
