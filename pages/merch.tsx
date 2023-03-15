@@ -13,9 +13,10 @@ export default function MerchPage(props:any) {
   return (
     <div className={styles.container} >
       <main className={styles.main}>
-
- <Releases/>
-
+<h1 className="text-3xl font-extrabold m-5 ">This is a test for camera access</h1>
+      <input style={{display:"none"}}accept="image/*" id="icon-button-file" type="file" capture="environment"/>
+      <label htmlFor="icon-button-file" className="bg-gator-blue text-gator-neongreen p-2 font-bold">
+Scanner mon document         </label>
       </main>
 
 
