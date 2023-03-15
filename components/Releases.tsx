@@ -18,7 +18,18 @@ export default function Releases() {
     fetch(`https://api.discogs.com/artists/2532180/releases?page=1&per_page=220&sort=year&sort_order=desc`)
       .then((response) => response.json())
       .then((data) => {
-        let releasesData = data.releases.sort( (e:Release )=> e.year)
+        let releasesData = data.releases.filter(
+          (release: any) =>
+          release.type=== "master"
+          // release.format.includes('album')
+            // release.label == "KGLW" ||
+            // release.label === "Flightless" ||
+            // // release.label &&
+            // release.label?.includes("Not On Label")
+        );
+      releasesData = releasesData.sort(function(a:{year:number}, b:{year:number}) { return a.year < b.year ? 1 : -1})
+
+        console.log(releasesData);
         setReleases(releasesData)
         // setReleases(data.releases.filter((release:{format:string}) => release.format && release.format.includes("LP")))
     });
@@ -27,7 +38,7 @@ export default function Releases() {
   let releasesDisplay = releases.map((release:Release, i:number) =>{
     return (
         <div key={i} className="mt-2" >
-            <h3 className="text-xl font-bold">{release.title} <span className="font-black">{release.year}</span></h3>
+            <h3 className="text-xl font-bold">{release.title} <span className="font-black"> {release.year}</span></h3>
             <p>{release.type === "master" ? "Master" :release.format} {release.label && "by"} {release.label} </p>
             <a href={`https://www.discogs.com/${release.type}/${release.id}`} target="_blank">
             <button className="bg-gator-blue p-2 text-gator-lightpink rounded-lg mt-2 text-xs">
@@ -44,7 +55,7 @@ SEE ON DISCOG
   return (
     <div className="p-6 pt-24 pb-36 bg-gator-lightpink w-[100vw] min-h-screen">
 <h2 className="text-left text-gator-neongreen text-3xl font-black pt-2 pb-2">
-       ALL RELEASES
+       OFFICIAL RELEASES
       </h2>      {releasesDisplay}
     </div>
   );
