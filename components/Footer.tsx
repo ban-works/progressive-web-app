@@ -79,7 +79,7 @@ if (activePage === "MerchPage"){
           className={bootleggersIconStyle}
         >
           <FontAwesomeIcon icon={faRecordVinyl} size="lg" />
-          Bootleggers
+          Labels
         </a>{" "}
         <a
           href="/merch"
