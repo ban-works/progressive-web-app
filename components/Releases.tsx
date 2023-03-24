@@ -7,9 +7,10 @@ import {
   faArrowDown19,
 } from "@fortawesome/free-solid-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import Image from "next/image";
 
-type Release = {
+import ReleaseCard from './ReleaseCard'
+
+export type Release = {
   title: string;
   format?: string;
   label?: string;
@@ -73,33 +74,34 @@ console.log(releases);
 
   let releasesDisplay = releases.map((release: Release, i: number) => {
     return (
-      <div
-        key={i}
-        className="flex flex-col w-[100%]  text-gator-green hover:text-gator-blue  p-2 bg-gator-lightpink border-4 border-gator-green  shadow hover:bg-gator-lightgreen dark:bg-gator-pink dark:order-gator-neongreen dark:hover:bg-gator-lightgreen mb-4 mr-4 "
-      >
-        {release.thumb && (
-          <img className="sm:h-48 xl:h-96  " src={release.thumb} alt="alt" />
-        )}
+      <ReleaseCard {...release}/>
+      // <div
+      //   key={i}
+      //   className="flex flex-col w-[100%]  text-gator-green hover:text-gator-blue  p-2 bg-gator-lightpink border-4 border-gator-green  shadow hover:bg-gator-lightgreen dark:bg-gator-pink dark:order-gator-neongreen dark:hover:bg-gator-lightgreen mb-4 mr-4 "
+      // >
+      //   {release.thumb && (
+      //     <img className="sm:h-48 xl:h-96  " src={release.thumb} alt={release.title+" thumbnail"} />
+      //   )}
 
-        {/* { release.thumb && <Image src={release.thumb} alt="alt" width={200} height={200}/>} */}
-        <div>
-          <h3 className="text-xl font-bold">
-            {release.title} <span className="font-black"> {release.year}</span>
-          </h3>
-          <p className=" ">
-            {release.type === "master" ? "Master" : release.format}{" "}
-            {release.label && "by"} {release.label}{" "}
-          </p>
-          <a
-            href={`https://www.discogs.com/${release.type}/${release.id}`}
-            target="_blank"
-          >
-            <button className="bg-gator-green hover:bg-gator-pink p-3 pl-5 pr-5 text-gator-lightpink hover:text-gator-blue rounded-lg mt-2 text-l">
-              <FontAwesomeIcon icon={faRecordVinyl} size="sm" /> SEE ON DISCOG
-            </button>
-          </a>
-        </div>
-      </div>
+      //   {/* { release.thumb && <Image src={release.thumb} alt="alt" width={200} height={200}/>} */}
+      //   <div>
+      //     <h3 className="text-xl font-bold">
+      //       {release.title} <span className="font-black"> {release.year}</span>
+      //     </h3>
+      //     <p className=" ">
+      //       {release.type === "master" ? "Master" : release.format}{" "}
+      //       {release.label && "by"} {release.label}{" "}
+      //     </p>
+      //     <a
+      //       href={`https://www.discogs.com/${release.type}/${release.id}`}
+      //       target="_blank"
+      //     >
+      //       <button className="bg-gator-green hover:bg-gator-pink p-3 pl-5 pr-5 text-gator-lightpink hover:text-gator-blue rounded-lg mt-2 text-l">
+      //         <FontAwesomeIcon icon={faRecordVinyl} size="sm" /> SEE ON DISCOG
+      //       </button>
+      //     </a>
+      //   </div>
+      // </div>
     );
   });
   return (
