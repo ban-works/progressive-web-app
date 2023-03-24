@@ -15,12 +15,9 @@ export default function MerchPage(props:any) {
   const handleUpload = (e:any) => {
     if (e.target.files){
       const file = e.target.files[0]
-      console.log(file);
       const newUrl = URL.createObjectURL(file);
-      console.log(newUrl);
       setFile(newUrl)
     }
-    console.log(e.target.files)
   }
 
   // const [source, setSource] = useState("");
