@@ -14,31 +14,41 @@ type Release = {
 };
 
 export default function Bootleggers() {
-  const [releases, setReleases] = useState([]);
+  const [releases, setReleases] = useState<string[]>([]);
   useEffect(() => {
     fetch(
-      `https://api.discogs.com/artists/2532180/releases?page=1&per_page=250&sort=year&sort_order=asc`
+      `https://api.discogs.com/artists/2532180/releases?page=1&per_page=250&sort=year&sort_order=asc&token=YAgEbreXWHpslaWNRJrrBvjHNWhXHtZNjhqkSnLA`
+      // `https://api.discogs.com//database/search?q=KingGizzardAndTheLizardWizard&type=label&token=YAgEbreXWHpslaWNRJrrBvjHNWhXHtZNjhqkSnLA`
     )
       //   fetch(`https://api.discogs.com/labels/1397829/releases?page=1&per_page=100&sort=year&sort_order=asc`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        let releasesData = data.releases.sort((e: Release) => e.label);
-        //   releasesData = releasesData.filter((release:any) => release.artist === "King Gizzard And The Lizard Wizard")
-        releasesData = releasesData.filter(
-          (release: any) =>
-            release.label !== "KGLW" &&
-            release.label &&
-            !release.label.includes("Not On Label")
-        );
-        releasesData = releasesData.map(
-          (element: { label: string }) => element.label
-        );
-        let newReleasesData:any = [...new Set(releasesData)];
+        // let releasesData:string[] = data.releases.sort((e: Release) => e.label).filter(
+        //   (release: any) =>
+        //     release.label !== "KGLW" &&
+        //     release.label &&
+         //   // !release.label.includes("Not On Label")
+        // )
+        // .map(
+        //   (element: Release) => element.id
+        // );
+        //   let labelsId;
+        // for (let releaseId of releasesData) {
+        //   fetch(
+        //     `https://api.discogs.com/releases/${releaseId}`
+        //   ).then( data=>{
+        //     console.log(data)
 
-        console.log(newReleasesData);
+        //   }
+        //   )
+        // }
+        // console.log(releasesData);
+        // let uniqueReleasesData = [...new Set(releasesData)];
 
-        setReleases(newReleasesData);
+        // console.log(uniqueReleasesData);
+
+        // setReleases(uniqueReleasesData);
         // setReleases(data.releases.filter((release:{format:string}) => release.format && release.format.includes("LP")))
       });
   }, []);
@@ -73,8 +83,9 @@ export default function Bootleggers() {
     <div className="p-6 pt-24 pb-36 bg-gator-lightgreen w-[100vw] min-h-screen">
         {/* <Image src="/staticwave.svg" height={300} width={3000} alt="wave svg" /> */}
       <h2 className="text-left text-gator-pink text-3xl font-black pt-2 pb-2">
-        BOOTLEGGERS{" "}
+        LABELS{" "}
       </h2>
+      <p> Currently building something here ... </p>
       {releasesDisplay}
     </div>
   );
