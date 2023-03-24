@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRecordVinyl, faHatWizard, faShirt, faHeadphones } from "@fortawesome/free-solid-svg-icons";
+import { faRecordVinyl, faHatWizard, faShirt, faHeadphones, faMicrophoneLines } from "@fortawesome/free-solid-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
 type Props ={
@@ -35,9 +35,9 @@ if (activePage === "BootleggersPage"){
   bootleggersIconStyle = activeClassName
 }
 
-let merchIconStyle = lastInactiveClassName
-if (activePage === "MerchPage"){
-  merchIconStyle = lastActiveClassName
+let listenIconStyle = lastInactiveClassName
+if (activePage === "ListenPage"){
+  listenIconStyle = lastActiveClassName
 }
 
 
@@ -61,7 +61,7 @@ if (activePage === "MerchPage"){
           className={homeIconStyle}
         >
           <FontAwesomeIcon icon={faHatWizard} size="lg" />
-          Home
+          Shows
         </a>
         <a
           href="/releases"
@@ -69,7 +69,7 @@ if (activePage === "MerchPage"){
           style={{ display: "flex", flexDirection: "column" }}
           className={releasesIconStyle}
         >
-          <FontAwesomeIcon icon={faHeadphones} size="lg" />
+          <FontAwesomeIcon icon={faRecordVinyl} size="lg" />
           Releases
         </a>
         <a
@@ -78,18 +78,18 @@ if (activePage === "MerchPage"){
           style={{ display: "flex", flexDirection: "column" }}
           className={bootleggersIconStyle}
         >
-          <FontAwesomeIcon icon={faRecordVinyl} size="lg" />
+          <FontAwesomeIcon icon={faMicrophoneLines} size="lg" />
           Labels
         </a>{" "}
         <a
-          href="/merch"
+          href="/listen"
           rel="noopener noreferrer"
           style={{ display: "flex", flexDirection: "column" }}
-          className={merchIconStyle}
+          className={listenIconStyle}
         >
-          <FontAwesomeIcon icon={faShirt} size="lg" />
-          Merch
-        </a>
+          <FontAwesomeIcon icon={faHeadphones} size="lg" />
+Listen
+ </a>
       </div>
       <a
         href="https://ban-works.github.io"
