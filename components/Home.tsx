@@ -123,21 +123,7 @@ useEffect(() => {
             {eventsToDisplay}
           </div>
         </div>
-        <div
-          className="bg-gator-lightgreen p-4  pb-48 flex flex-col justify-center items-center "
-          style={{ width: "100%" }}
-        >
-          <h2 className="text-left w-[100%] pl-6 pb-4 text-gator-pink text-3xl font-black ">
-            LAST ALBUM
-          </h2>
-          {!isOffline ? (
-            <Spotify link="https://open.spotify.com/album/05ag5ukffFozEnXGOeuTTD?si=kU2nCVhJT2yqw90bUZashw" />
-          ) : (
-            <p className="text-left text-gator-blue w-[100%] pl-6">
-              You have to be online to listen to songs ...
-            </p>
-          )}{" "}
-        </div>
+
       </div>
     </div>
   );
