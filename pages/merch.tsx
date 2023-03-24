@@ -1,8 +1,5 @@
 import styles from '../styles/Home.module.css'
-import Releases from "../components/Releases"
-import localFont from 'next/font/local'
-const myFont = localFont({ src: '../fonts/moonraze.otf' })
-import Image from "next/image"
+
 import {useEffect, useState} from 'react'
 
 export default function MerchPage(props:any) {
