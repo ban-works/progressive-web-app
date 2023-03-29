@@ -82,7 +82,7 @@ export default function Bootleggers() {
  return (
     <div className="p-6 pt-24 pb-36 bg-gator-lightgreen w-[100vw] min-h-screen">
         {/* <Image src="/staticwave.svg" height={300} width={3000} alt="wave svg" /> */}
-      <h2 className="text-left text-gator-pink text-3xl font-black pt-2 pb-2">
+      <h2 className="text-left text-gator-pink text-3xl font-black pt-6 pb-2">
         LABELS{" "}
       </h2>
       <p> Currently building something here ... </p>

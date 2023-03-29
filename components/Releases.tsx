@@ -136,7 +136,7 @@ console.log(releases);
           </div>
         </div>
       )}
-      <h2 className="text-left text-gator-neongreen text-3xl font-black pt-2 pb-2">
+      <h2 className="text-left text-gator-neongreen text-3xl font-black pt-6 pb-2">
         ALL RELEASES
       </h2>
       <div className=" mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 min-h-screen">
