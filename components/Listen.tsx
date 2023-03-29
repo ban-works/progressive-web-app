@@ -26,33 +26,7 @@ export type Event = {
   venue: string;
 };
 export default function Home() {
-  const [events, setEvents] = useState<Event[]>([]);
   let isOffline = useIsOffline();
-  // useEffect(() => {
-  //   fetch(
-  //     // "https://app.ticketmaster.com/discovery/v2/events.json?attractionId=K8vZ9173QDf&apikey=G4vYwWGcLUpVZfpCj8hjJrUGZi0U0WAf"
-  //     "https://api.songkick.com/api/3.0/artists/4137561/calendar/tourbox.json?apikey=2kPN9eFcrPY9pwv4&per_page=100&jsoncallback=calendar_jqueryJsonpCallback&_=1678100472188"
-  //   )
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       let newEvents = [];
-  //       for (const event of data._embedded.events) {
-  //         const newEvent = {
-  //           name: event.name,
-  //           city: event._embedded.venues[0].city.name,
-  //           country: event._embedded.venues[0].country.name,
-  //           countryCode: event._embedded.venues[0].country.countryCode,
-  //           localDate: event.dates.start.localDate,
-  //           localTime: event.dates.start.localTime,
-  //           images: event.images,
-  //           bookingURL: event.url,
-  //         };
-  //         newEvents.push(newEvent);
-  //       }
-  //       newEvents = newEvents.slice(0, 9);
-  //       setEvents(newEvents);
-  //     });
-  // }, []);
 
 
 
@@ -64,11 +38,20 @@ export default function Home() {
           className="pt-14 pb-48 flex flex-col justify-center items-center "
           style={{ width: "100%" }}
         >
-          <h2 className="text-left w-[100%] pl-6 pb-4 text-gator-pink text-3xl font-black ">
-            LAST ALBUM
+          <h2 className="text-left w-[100%] pl-6 pt-6 pb-4 text-gator-pink text-3xl font-black ">
+            LAST ALBUMS
           </h2>
           {!isOffline ? (
-            <Spotify link="https://open.spotify.com/album/05ag5ukffFozEnXGOeuTTD?si=kU2nCVhJT2yqw90bUZashw" />
+                 <div className="flex gap-6">
+
+
+            <iframe width="100%" height="400" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1515419395&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+
+            <iframe width="100%" height="400" scrolling="no"  allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1507867381&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+
+            <iframe width="100%" height="400" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1505531761&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+
+            </div>
           ) : (
             <p className="text-left text-gator-blue w-[100%] pl-6">
               You have to be online to listen to songs ...
@@ -79,3 +62,9 @@ export default function Home() {
     // </div>
   );
 }
+
+// changes spotify working
+          // <Spotify link="https://open.spotify.com/album/05ag5ukffFozEnXGOeuTTD?si=kU2nCVhJT2yqw90bUZashw" />
+          // ILAM 1 song soundclound iframe working
+          // <iframe width="300" height="300" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1351941826&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+          // CHANGES albu soundcould iframe working
