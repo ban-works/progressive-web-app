@@ -31,7 +31,7 @@ export default function Home() {
 
 
   return (
-    <div className="h-[100vh] w-[100%] pt-12 bg-gator-lightgreen">
+    <div className="h-min-[100vh] w-[100%] pt-12 bg-gator-lightgreen">
       {/* <div className="bg-gator-pink flex flex-col justify-center items-center w-[100vw]"> */}
 
         <div
@@ -42,14 +42,14 @@ export default function Home() {
             LAST ALBUMS
           </h2>
           {!isOffline ? (
-                 <div className="flex gap-6">
+                 <div className="flex justify-center flex-wrap gap-6">
 
 
-            <iframe width="100%" height="400" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1515419395&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+            <iframe width="350px" height="400" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1515419395&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
 
-            <iframe width="100%" height="400" scrolling="no"  allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1507867381&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+            <iframe width="350px" height="400" scrolling="no"  allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1507867381&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
 
-            <iframe width="100%" height="400" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1505531761&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+            <iframe width="350px" height="400" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1505531761&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
 
             </div>
           ) : (

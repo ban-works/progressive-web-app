@@ -93,7 +93,7 @@ useEffect(() => {
   });
   return (
     <div className={styles.container}>
-      <div className="bg-gator-pink flex flex-col justify-center items-center pt-12 w-[100vw]">
+      <div className="bg-gator-pink flex flex-col justify-center items-center pt-12  w-[100vw]">
         <Image
           priority
           src="/image50.png"
@@ -115,7 +115,7 @@ useEffect(() => {
         </h1>
         <h2 className="font-black text-gator-blue">a KGLW fan website</h2>
 
-        <div className="bg-gator-blue mt-4 pt-4" style={{ width: "100%" }}>
+        <div className="bg-gator-blue mt-4 pt-4 pb-24" style={{ width: "100%" }}>
           <h2 className="text-left pl-6 text-gator-pink text-3xl font-black">
             NEXT SHOWS
           </h2>
