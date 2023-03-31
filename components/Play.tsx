@@ -130,7 +130,7 @@ useEffect(() =>{
             <h2 className="text-left w-[100%]  pb-4 text-gator-blue text-3xl font-black ">Play</h2>
             <button onClick={()=>setGameHasStarted(false)}> stop</button>
 
-            <div className="w-[500px] h-[500px] bg-gator-lightpink overflow-hidden " onClick={(e)=>handleJump(e)}>
+            <div className="w-[500px] h-[500px] bg-gator-lightpink overflow-hidden " onClick={(e:any)=>handleJump(e)}>
             <img
             // style={{marginTop:`${gatorXPosition}px`, marginLeft:`${gatorYPosition}px`, width:'120px' }}
             style={{position: 'absolute', top:`${gatorXPosition}px`,left:`${gatorYPosition}px`, width:'140px'}}
